@@ -2,12 +2,24 @@ import axios from 'axios'
 const API_KEY = 'AIzaSyDJBjY4UqxuyyIDEFcAsBCwfyJcoz5Eixw'
 const ROOT_URL = 'https://www.googleapis.com/youtube/v3/search'
 
-function fetchVideos(searchTerm){
-  const videos = axios.get(`https://www.googleapis.com/youtube/v3/search?q=${searchTerm}&part=snippet&key=${API_KEY}`)
+export function fetchVideos(searchTerm){
+  const videos = axios.get(`${ROOT_URL}?q=${searchTerm}&part=snippet&key=${API_KEY}&type=video`)
   return {
     type: "FETCH_VIDEOS",
     payload: videos
   }
 }
 
-export default fetchVideos
+export function setSearchTerm(term){
+  return {
+    type: 'SET_SEARCH_TERM',
+    payload: term
+  }
+}
+
+export function setActiveVideo(id) {
+  return {
+    type: 'SET_ACTIVE_VIDEO',
+    payload: id
+  }
+}

@@ -1,16 +1,18 @@
 import React, { Component } from 'react';
 import './App.css';
-import SearchBar from './components/searchbar';
-// import Player from './components/player';
-// import VideoList from './components/videoList';
 import {connect} from 'react-redux';
+import SearchBar from './components/searchbar'
+import Player from './components/player'
+import VideoList from './components/videolist'
 
 class App extends Component {
 
   render() {
     return (
       <div className="App">
-        <SearchBar store={this.props.state}/>
+        <SearchBar />
+        <Player />
+        <VideoList />
       </div>
     )
   }
